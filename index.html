@@ -93,7 +93,7 @@
 
 <script type="text/javascript">
 function changeBackground () {
-    $(".bg").first().fadeIn("slow", function showNext() {
+    $(".hero-section").first().fadeIn("slow", function showNext() {
         $(this).next("div").delay(1000).fadeIn("slow", showNext);
     });
 }
