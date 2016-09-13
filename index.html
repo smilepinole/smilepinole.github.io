@@ -3,6 +3,8 @@
 <html>
 
 <head>
+<script src="jquery-1.12.4.min.js"></script>
+
 <meta charset="UTF-8">
 <title>Welcome</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,6 +78,30 @@
 </nav>
 
 <div class="hero-section " style="background-image:url(assets/JP_FM.jpg)">
+  <img src="assets/JP_FM.jpg" alt="">
+  <img src="assets/JP_Nature.jpg" alt="">
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+      var _intervalId;
+
+      function fadeInLastImg()
+      {
+          var backImg = $('.hero-section img:first');
+          backImg.hide();
+          $('.hero-section' ).append( backImg );
+          backImg.fadeIn()
+      };
+
+      _intervalId = setInterval( function() 
+      {
+          fadeInLastImg();
+      }, 1000 );
+
+  });​
+</script>
+
+</div>
 <div class="hero-overlay"></div>
 <div class="hero-inner">
 
