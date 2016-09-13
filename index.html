@@ -113,8 +113,8 @@
     function changeBackground() {
         //    here i select the current one visible,
         //    then i check if there is another omage after it, else i go back to the first
-        var cur = $("#myBackground img:visible"),
-            nxt = cur.next().length ? cur.next() : $("#myBackground img:first");
+        var cur = $("hero-section img:visible"),
+            nxt = cur.next().length ? cur.next() : $("hero-section img:first");
         cur.fadeOut("slow");
         nxt.fadeIn(1500);
     }
