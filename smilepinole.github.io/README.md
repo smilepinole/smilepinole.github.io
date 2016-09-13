@@ -1,1 +1,0 @@
-# smilepinole.github.io
