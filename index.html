@@ -78,16 +78,30 @@
 </nav>
 
 <div class="hero-section " style="background-image:url(assets/JP_FM.jpg)"> 
-
-</div>
 <div class="hero-overlay"></div>
 <div class="hero-inner">
-
 <h1>Smile Pinole</h1>
 </div> 
 </div> 
 
-        
+<div class="hero-section " style="background-image:url(assets/JP_Nature.jpg)"> 
+<div class="hero-overlay"></div>
+<div class="hero-inner">
+<h1>Smile Pinole</h1>
+</div> 
+</div>
+
+<script type="text/javascript">
+function changeBackground () {
+    $(".bg").first().fadeIn("slow", function showNext() {
+        $(this).next("div").delay(1000).fadeIn("slow", showNext);
+    });
+}
+
+$(document).ready(function() {
+    setTimeout(changeBackground, 0);        
+});
+</script>       
 
 <hr />
       </div><!-- end .entry-content -->
