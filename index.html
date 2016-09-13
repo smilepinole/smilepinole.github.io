@@ -77,31 +77,54 @@
 </div>
 </nav>
 
-<div class="hero-section " style="background-image:url(assets/JP_FM.jpg)"> 
+<!-- <div class="hero-section " style="background-image:url(assets/JP_FM.jpg)"> 
 <div class="hero-overlay"></div>
 <div class="hero-inner">
 <h1>Smile Pinole</h1>
 </div> 
-</div> 
+</div>  -->
 
-<div class="hero-section " style="background-image:url(assets/JP_Nature.jpg)"> 
-<div class="hero-overlay"></div>
-<div class="hero-inner">
-<h1>Smile Pinole</h1>
-</div> 
-</div>
+<div class="hero-section ">
+    <!-- Inline CSS -->
+  <style type="text/css"> 
 
-<script type="text/javascript">
-function changeBackground () {
-    $(".hero-section").first().fadeIn("slow", function showNext() {
-        $(this).next("div").delay(1000).fadeIn("slow", showNext);
-    });
-}
+  {
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+  }
+  img {
+      display: none;
+      height: 100%;
+      /* this will remove "white flash" between fade */
+      position: absolute;
+      width: 100%;
+  }
+  img:first-child {
+      display: block;
+  }
+  </style>
 
-$(document).ready(function() {
-    setTimeout(changeBackground, 0);        
-});
-</script>       
+  <img src="assets/JP_FM" />
+  <img src="assets/JP_Nature" />
+
+  <script type="text/javascript">
+    function changeBackground() {
+        //    here i select the current one visible,
+        //    then i check if there is another omage after it, else i go back to the first
+        var cur = $("#myBackground img:visible"),
+            nxt = cur.next().length ? cur.next() : $("#myBackground img:first");
+        cur.fadeOut("slow");
+        nxt.fadeIn(1500);
+    }
+
+    $(function() {    //    starts when page is loaded and ready
+        setInterval(changeBackground, 2250);    //    2 second timer
+    })
+  </script>
+</div>     
 
 <hr />
       </div><!-- end .entry-content -->
