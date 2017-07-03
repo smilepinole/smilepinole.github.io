@@ -11,17 +11,17 @@
 <style id='wp-polls-inline-css' type='text/css'>.wp-polls .pollbar{margin:1px;font-size:8px;line-height:10px;height:10px;background:#37aecc;border:1px solid ##37aec;}</style>
 
 <link rel='stylesheet' id='magnific-popup-css' href='link1.css' type='text/css' media='all'/>
-
 <link rel='stylesheet' id='core-css' href='link2.css' type='text/css' media='all'/>
-
 <script type='text/javascript' src='link3.js'></script>
-
 <script type='text/javascript' src='link4.js'></script>
-
 <script type='text/javascript' src='link5.js'></script>
-
 <script type='text/javascript' src='link6.js'></script>
- 
+
+<link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+      
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+<script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js'></script>
+
 </head>
 
 <nav id="navbar" class="nav-bar">
@@ -33,7 +33,7 @@
 <div class="top-nav hidden-xs hidden-sm invisible">
 <ul id="menu-top-navigation" class="menu-top-navigation">
 
-<li data-dt-event-category="menuBlog" data-dt-event-label="About"><a href="#" class="gsc-button">About</a></li>
+<li data-dt-event-category="menuBlog" data-dt-event-label="About"><a href="index.html" class="gsc-button">About</a></li>
 
 <li data-dt-event-category="menuBlog" data-dt-event-label="Services"><a href="#" class="gsc-button">Services</a></li>
 
@@ -89,7 +89,33 @@
 <div id="nav-mask"></div>
 
 <div> 
-	<h1>Contact Information</h1>
+	<h3>Contact Information</h3>
+  <h5>(555) - 555 - 5555 <br><br>
+      123 address drive, somewhere-ville, CA, 55555
+  </h5>
+
+  <div id="map" style = "height: 500px; width: 500px;"></div>
+    <script type="text/javascript">
+      var longitude = 37.972379;
+      var latitude = -122.092048;
+      var url = 'https://www.google.com/maps/place/605+Ridgeview+Dr,+Pleasant+Hill,+CA+94523/@37.9723789,-122.0942367,17z/data=!3m1!4b1!4m5!3m4!1s0x808564247f0526cf:0x939fc567dc808b73!8m2!3d37.9723789!4d-122.092048';
+
+      var map = L.map( 'map', {
+          center: [longitude, latitude],
+          minZoom: 2,
+          zoom: 16
+      });
+
+      L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          subdomains: ['a','b','c']
+      }).addTo( map );
+
+      L.marker( [longitude, latitude] )
+      .bindPopup( '<a href="' + url + '" target="_blank">' + 'Click for directions to Smile Pinole' + '</a>' )
+      .addTo( map )
+    </script>
+  </div>
 </div>
 
 </html>
